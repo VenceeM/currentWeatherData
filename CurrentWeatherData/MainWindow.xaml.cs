@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CurrentWeatherData.Helper;
+using CurrentWeatherData.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +24,11 @@ namespace CurrentWeatherData
     {
         public MainWindow()
         {
+            ApiHelper.InitializeClient();
             InitializeComponent();
+           
+            DataContext = new MainWindowViewModel();
+
         }
     }
 }
