@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrentWeatherData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="394" Width="569">
     <Grid>
-        <Button Content="Button" Command="{Binding cmd}" HorizontalAlignment="Left" Margin="310,194,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Villasis, PH" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" FontFamily="Calibri"/>
+        <StackPanel Orientation="Horizontal" Margin="125,149,144,154" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <Image  Source="{Binding Icon}" Height="55" Width="55"/>
+
+            <TextBlock  Text="{Binding Temp}" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25" FontFamily="Calibri" Height="27" Width="53"/>
+
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="221,219,0,0" TextWrapping="Wrap" Typography.Capitals="AllSmallCaps" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" FontFamily="Calibri" Text="{Binding FeelsLike}"/>
 
     </Grid>
 </Window>

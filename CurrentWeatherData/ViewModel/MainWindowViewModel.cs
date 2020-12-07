@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace CurrentWeatherData.ViewModel
 {
@@ -22,9 +23,34 @@ namespace CurrentWeatherData.ViewModel
             cmd = new RelayCommand(Da);
             Title = "Weather";
 
+            Da();
            
            
         }
+        private string temp;
+
+        public string Temp
+        {
+            get => temp;
+            set => SetProperty(ref temp, value);
+        }
+        private string feelsLike;
+
+        public string FeelsLike
+        {
+            get => feelsLike;
+            set => SetProperty(ref feelsLike, value);
+        }
+
+        private BitmapImage icon;
+
+        public BitmapImage Icon
+        {
+            get => icon;
+            set => SetProperty(ref icon, value);
+        }
+
+
 
         private async void Da()
         {
@@ -45,7 +71,19 @@ namespace CurrentWeatherData.ViewModel
                         Root root = JsonConvert.DeserializeObject<Root>(jsonConverter);
 
                         double temp = Convert.ToInt32(root.main.temp - 273.15);
-                        MessageBox.Show(temp.ToString());
+                        double feel = Convert.ToInt32(root.main.feels_like - 273.15);
+                        //MessageBox.Show(root.name + "," + root.sys.country);
+                        var des = string.Empty;
+                        foreach (var i in root.weather)
+                        {
+                            //MessageBox.Show(i.main);
+                            des = i.description;
+                            _Icon(i.icon);
+                        }
+                        Temp = Convert.ToString(string.Format("{0}°C", temp));
+
+                        FeelsLike = Convert.ToString(string.Format("Feels Like {0}°C {1}", feel, des));
+
 
 
                     }
@@ -57,9 +95,17 @@ namespace CurrentWeatherData.ViewModel
             }
             
 
+        }
 
+        private void _Icon(string icon)
+        {
+            var fullFilePath = $@"https://openweathermap.org/img/wn/{icon}@2x.png";
 
-
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
+            bitmap.EndInit();
+            Icon = bitmap;
         }
 
 
