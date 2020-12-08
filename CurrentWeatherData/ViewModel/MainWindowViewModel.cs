@@ -17,13 +17,13 @@ namespace CurrentWeatherData.ViewModel
     public class MainWindowViewModel:BaseViewModel
     {
 
-        public ICommand cmd { get; set; }
+        
         public MainWindowViewModel()
         {
-            cmd = new RelayCommand(Da);
+            
             Title = "Weather";
 
-            Da();
+            _Data();
            
            
         }
@@ -60,7 +60,7 @@ namespace CurrentWeatherData.ViewModel
 
 
 
-        private async void Da()
+        private async void _Data()
         {
             await Data();
         }
@@ -70,7 +70,8 @@ namespace CurrentWeatherData.ViewModel
             
             try
             {
-                string apiKey = "517a87487b1257ffa55fc471a130585d";
+                //Insert your apikey from https://openweathermap.org/
+                string apiKey = "";
                 using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"data/2.5/weather?q=Villasis,ph&appid={apiKey}"))
                 {
                     if (response.IsSuccessStatusCode)
