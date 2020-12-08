@@ -72,7 +72,10 @@ namespace CurrentWeatherData.ViewModel
             {
                 //Insert your apikey from https://openweathermap.org/
                 string apiKey = "";
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"data/2.5/weather?q=Villasis,ph&appid={apiKey}"))
+
+                //Put the city name and the Country Code ex: Manila,PH
+                string location = "Villasis,PH";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"data/2.5/weather?q={location}&appid={apiKey}"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
