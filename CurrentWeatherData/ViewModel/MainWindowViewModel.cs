@@ -27,6 +27,14 @@ namespace CurrentWeatherData.ViewModel
            
            
         }
+        private string location;
+
+        public string Location
+        {
+            get => location;
+            set => SetProperty(ref location, value);
+        }
+
         private string temp;
 
         public string Temp
@@ -83,6 +91,7 @@ namespace CurrentWeatherData.ViewModel
                         Temp = Convert.ToString(string.Format("{0}°C", temp));
 
                         FeelsLike = Convert.ToString(string.Format("Feels Like {0}°C {1}", feel, des));
+                        Location = root.name + "," + root.sys.country;
 
 
 

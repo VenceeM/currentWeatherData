@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CurrentWeatherData"
         mc:Ignorable="d"
-        Title="MainWindow" Height="394" Width="569">
+        Title="Current Weather Data" MinHeight="394" MaxHeight="394" Height="394" MinWidth="500" MaxWidth="500" Width="500" WindowStyle="ThreeDBorderWindow" Background="#FF323232" Foreground="White">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Villasis, PH" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" FontFamily="Calibri"/>
-        <StackPanel Orientation="Horizontal" Margin="125,149,144,154" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="{Binding Location}" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" FontFamily="Calibri"/>
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="155" Width="305">
 
-            <Image  Source="{Binding Icon}" Height="55" Width="55"/>
-
-            <TextBlock  Text="{Binding Temp}" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="25" FontFamily="Calibri" Height="27" Width="53"/>
+            <Image  Source="{Binding Icon}" Height="108" Width="108"/>
+            <TextBlock  Text="34°C" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" FontSize="50" FontFamily="Calibri" Height="60" Width="112"/>
 
         </StackPanel>
-        <TextBlock HorizontalAlignment="Left" Margin="221,219,0,0" TextWrapping="Wrap" Typography.Capitals="AllSmallCaps" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" FontFamily="Calibri" Text="{Binding FeelsLike}"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,272,0,0" TextWrapping="Wrap" Typography.Capitals="AllSmallCaps" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" FontFamily="Calibri" Text="{Binding FeelsLike}"/>
 
     </Grid>
 </Window>
