@@ -11,7 +11,7 @@
         <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="155" Width="305">
 
             <Image  Source="{Binding Icon}" Height="108" Width="108"/>
-            <TextBlock  Text="34°C" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" FontSize="50" FontFamily="Calibri" Height="60" Width="112"/>
+            <TextBlock  Text="{Binding Temp}" TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold" FontSize="50" FontFamily="Calibri" Height="60" Width="112"/>
 
         </StackPanel>
         <TextBlock HorizontalAlignment="Center" Margin="0,272,0,0" TextWrapping="Wrap" Typography.Capitals="AllSmallCaps" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" FontFamily="Calibri" Text="{Binding FeelsLike}"/>

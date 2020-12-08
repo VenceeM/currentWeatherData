@@ -70,7 +70,8 @@ namespace CurrentWeatherData.ViewModel
             
             try
             {
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync("data/2.5/weather?q=Villasis,ph&appid=517a87487b1257ffa55fc471a130585d"))
+                string apiKey = "517a87487b1257ffa55fc471a130585d";
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync($"data/2.5/weather?q=Villasis,ph&appid={apiKey}"))
                 {
                     if (response.IsSuccessStatusCode)
                     {
